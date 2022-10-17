@@ -3,6 +3,7 @@ This is the replication of "Innis Lecture: Return on Student Loans in Canada" - 
 
 
 Identifiant pérenne de l'ensemble de données :	doi:10.5683/SP3/R8HN1D
+https://borealisdata.ca/dataset.xhtml?persistentId=doi:10.5683/SP3/R8HN1D
 
 Date de publication :	2021-12-06
 
