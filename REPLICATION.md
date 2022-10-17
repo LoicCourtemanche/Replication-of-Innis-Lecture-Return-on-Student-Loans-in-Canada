@@ -1,19 +1,16 @@
-# [MC number] [Manuscript Title] Validation and Replication results
-
-> INSTRUCTIONS: Once you've read these instructions, DELETE THESE AND SIMILAR LINES.
-> In the above title, replace [Manuscript Title] with the actual title of the paper, and [MC number] with the Manuscript Central number (e.g., AEJPol-2017-0097)
-> Go through the steps to download and attempt a replication. Document your steps here, the errors generated, and the steps you took to alleviate those errors.
+# [caje.12561] [Innis Lecture: Return on Student Loans in Canada] Validation and Replication results
 
 > Some useful links:
 > - [Official Data and Code Availability Policy](https://www.aeaweb.org/journals/policies/data-code)
 > - [Step by step guidance](https://aeadataeditor.github.io/aea-de-guidance/) 
 > - [Template README](https://social-science-data-editors.github.io/template_README/)
 
+
 ## SUMMARY
 
-> INSTRUCTION: The Data Editor will fill this part out. It will be based on any [REQUIRED] and [SUGGESTED] action items that the report makes a note of. 
 
 ### Action Items (manuscript)
+
 
 ### Action Items (openICPSR)
 
@@ -27,105 +24,77 @@
 
 > INSTRUCTION: ALWAYS do "Data description", "Code description". If data is present, ALWAYS do "Data checks". If time is sufficient (initial assessment!), do "Replication steps", if not, explain why not.
 
+
 ## General
 
-
-> INSTRUCTIONS: Check off the following sections/elements that you find in either the README provided by the authors, or in the authors' online appendix (rare).
-
-- [ ] Data Availability and Provenance Statements
-  - [ ] Statement about Rights
-  - [ ] License for Data
+- [X] Data Availability and Provenance Statements
+  - [X] Statement about Rights
+  - [X] License for Data
   - [ ] Details on each Data Source
 - [ ] Dataset list
 - [ ] Computational requirements
   - [ ] Software Requirements
   - [ ] Controlled Randomness
   - [ ] Memory and Runtime Requirements
-- [ ] Description of programs/code
+- [X] Description of programs/code
   - [ ] (Optional, but recommended) License for Code
-- [ ] Instructions to Replicators
+- [X] Instructions to Replicators
   - [ ] Details
-- [ ] List of tables and programs
-- [ ] References
-
-
-> INSTRUCTIONS: Leave this in, when any of the sections is lacking. Remove the entire section only if the README has all the pieces necessary (up to minor imprecisions).
+- [X] List of tables and programs
+- [X] References
 
 > [REQUIRED] As specified in the [Policy](https://www.aeaweb.org/journals/data/data-code-policy) and the [DCAF](https://www.aeaweb.org/journals/forms/data-code-availability), the README shall follow the schema provided by the [Social Science Data Editors' template README](https://social-science-data-editors.github.io/guidance/template-README.html).
 
+
 ## Data description
+
 
 ### Data Sources
 
-> INSTRUCTIONS: Identify all INPUT data sources. Create a list (and commit the list together with this report) (not needed if filling out the "Data Citation and Information report"). For each data source, list in THIS document presence or absence of source, codebook/information on the data, and summary statistics. Summary statistics and codebook may not be necessary if they are available for public use data. In all cases, if the author of the article points to an online location for such information, that is OK. IN THIS DOCUMENT, point out only a summary of shortcomings.
+[CSLP]
+- CSLP PCPE repayment f1 v1.dta (not provided)
+- CSLP PCPE disbursement f1 v1.dta (not provided)
+- CSLP PCPE needs f1 v1.dta (not provided)
 
-> INSTRUCTIONS: For all data sources, check for a data citation. Oftentimes authors will cite the **paper** in which a dataset is originally used, but this is not a *data* citation. If you have found what you think to be a data citation, quote it in the report as shown below for the "Example data". 
+> Employment and Social Development Canada (ESDC). 2021. Canada Student Loans Program 2003–2004 to 2015–2016. Canadian Research Data Centre Network, last accessed 2021-09-02.
 
-#### Example data
+- Repayment Post Default and Post Rehabilitation data.xlsx
+> The source is missing
 
-- Dataset is not provided, but a link is provided in the README
-- Access conditions are not described. It turns out, the website requires registration and payment of a fee
-- The data are cited in the references section of the manuscript and the README. Data citation:
-
-> Bureau of Labor Statistics. 2000–2010. “Current Employment Statistics: Colorado, Total Nonfarm, Seasonally adjusted - SMS08000000000000001.” United States Department of Labor. http://data.bls.gov/cgi-bin/surveymost?sm+08 (accessed February 9, 2011).
 
 ### Analysis Data Files
 
-> INSTRUCTIONS: Separately, identify any analysis data file provided. Analysis data files are produced by code in the deposit from data sources. Not every deposit will have these.
-
 - [ ] No analysis data file mentioned
 - [ ] Analysis data files mentioned, not provided (explain reasons below)
-- [ ] Analysis data files mentioned, provided. File names listed below.
+- [X] Analysis data files mentioned, provided. File names listed below.
 
-> INSTRUCTIONS: List all provided filenames here. For large deposits, this can be done using the "Git Bash" program:
-> > find . -name \*.dta
-> will list all Stata datasets. Replace `dta` with `.Rdata` or any other extension to find other datafiles.
+-frac_def.dta: This data file is generated by “create default data.do”. It contains the
+statistics that we use to impute payments after default (online appendix Table C1 and
+Table C2).
+- frac_rehab.dta: This data file is generated by “create default data.do”. It contains
+the statistics that we use to impute payments after default (online appendix Table C3)
 
-Example:
-
-```
-./Output_Empirical/data/census_shp/counties_coord.dta
-./Output_Empirical/data/census_shp/counties_db.dta
-./Output_Empirical/data/census_shp/state_coord.dta
-./Output_Empirical/data/census_shp/state_db.dta
-```
 
 ## Data deposit
 
 > INSTRUCTIONS: Most deposits will be at openICPSR, but all need to be checked for complete metadata. Detailed guidance is at [https://aeadataeditor.github.io/aea-de-guidance/](https://aeadataeditor.github.io/aea-de-guidance/). 
 
+
 ### Requirements 
 
 > INSTRUCTIONS: Check that these requirements are met. 
 
-- [ ] README is in TXT, MD, PDF format
-- [ ] Deposit has no ZIP files
-- [ ] Title conforms to guidance (starts with "Data and Code for:" or "Code for:", is properly capitalized)
-- [ ] Authors (with affiliations) are listed in the same order as on the paper
+- [X] README is in TXT, MD, PDF format
+- [X] Deposit has no ZIP files
+- [X] Title conforms to guidance (starts with "Data and Code for:" or "Code for:", is properly capitalized)
+- [X] Authors (with affiliations) are listed in the same order as on the paper
 
-> INSTRUCTIONS: If any of the above are NOT checked, leave the related [REQUIRED] element here. Otherwise, delete the line.
-
-> [REQUIRED] Please ensure that a ASCII (txt), Markdown (md), or PDF version of the README are available in the data and code deposit.
-
-> [REQUIRED] Deposit should not have ZIP files visible. 
-  - on openICPSR: ZIP files should be uploaded to openICPSR via "Import from ZIP" instead of "Upload Files". Please delete the ZIP files, and re-upload using the "Import from ZIP" function.
-  - on other platforms: Please consult with your repository helpdesk how to "import from ZIP".
-
-> [REQUIRED] Please review the title of the deposit as per our guidelines (below).
-
-> [REQUIRED] Please review authors and affiliations on the deposit. In general, they are the same, and in the same order, as for the manuscript; however, authors can deviate from that order.
-
-> INSTRUCTIONS: Leave the following line in the report if any of the above are checked:
-
-> Detailed guidance is at [https://aeadataeditor.github.io/aea-de-guidance/](https://aeadataeditor.github.io/aea-de-guidance/). 
 
 ### Deposit Metadata
 
-> INSTRUCTIONS: Some of these are specific to openICPSR (JEL, Manuscript Number). Others may or may not be present at other trusted repositories (Dataverse, Zenodo, etc.). Verify all items for openICPSR, check with supervisor for other deposits.
-
-- [ ] JEL Classification (required)
-- [ ] Manuscript Number (required)
-- [ ] Subject Terms (highly recommended)
+- [X] JEL Classification (required)
+- [X] Manuscript Number (required)
+- [X] Subject Terms (highly recommended)
 - [ ] Geographic coverage (highly recommended)
 - [ ] Time period(s) (highly recommended)
 - [ ] Collection date(s) (suggested)
@@ -134,21 +103,9 @@ Example:
 - [ ] Data Source (suggested)
 - [ ] Units of Observation (suggested)
 
-> INSTRUCTIONS: Go through the checklist above, and then choose ONE of the following results:
-
-- [NOTE] openICPSR metadata is sufficient.
-
-or
-
-- [REQUIRED] Please update the openICPSR metadata fields marked as (required), in order to improve findability of your data and code supplement. 
-
-and/or
-
 - [SUGGESTED] We suggest you update the openICPSR metadata fields marked as (highly recommended), in order to improve findability of your data and code supplement. 
 - [SUGGESTED] We suggest you update the openICPSR metadata fields marked as (suggested), in order to improve findability of your data and code supplement. 
 
-
-For additional guidance, see [https://aeadataeditor.github.io/aea-de-guidance/data-deposit-aea-guidance.html](https://aeadataeditor.github.io/aea-de-guidance/data-deposit-aea-guidance.html).
 
 ## Data checks
 
@@ -161,39 +118,37 @@ For additional guidance, see [https://aeadataeditor.github.io/aea-de-guidance/da
 
 ## Code description
 
-> INSTRUCTIONS: Review the code (but do not run it yet). Identify programs that create "analysis files" ("data preparation code"). Identify programs that create tables and figures. Not every deposit will have separate programs for this.
+- clean CSLP repayment.do: This program cleans the raw repayment file.
+- clean CSLP disbursement.do: This program cleans the raw disbursement file.
+- clean CSLP needs.do: This program cleans the raw needs assessment file.
+- clean repay by cohort.do: This program further cleans the repayment file by last consolidation year.
+- calc repay case3.do: This program calculates annual payments for inconsistent cases where payments were made prior to the last loan consolidation.
+- calc repay other.do: This program calculates annual payments for all other cases.
+- calc default.do: This program imputes payments after default.
+- predict payments.do: This program runs Tobit regressions and imputes payments after the observed period for borrowers who do not have the full repayment history.
+- calc return.do: This program calculates the realized return.
+- return analysis.do: This program generates return statistics and runs return regressions.
+- rank cslp.do: This program labels the institutions.
+- robust sample.do: This program generates statistics for different samples (online appendix Table A1).
+- create default data.do: This program reads data from the file “Repayment Post
 
-> INSTRUCTIONS: Identify all **Figure, Table, and any in-text numbers**. Create a list, mapping each of them to a particular program and line number within the program (use [this template](code-check-TEMPLATE.xlsx)). Commit that list. You will come back to the list in your findings. IN THIS SECTION, point out only a summary description, including of shortcomings. E.g.
+[Tables and figures in the main paper]
+Table/figure in paper - Program(s) generating output
+Figure 1 -> return analysis.do
+Figure 2 -> return analysis.do
+Figure 3 -> return analysis.do
+Figure 4 -> return analysis.do
+Table 1 -> return analysis.do
+Table 2 -> return analysis.do
+Table 3 -> return analysis.do
+Table 4 -> return analysis.do
+Table 5 -> return analysis.do
 
-There are four provided Stata do files, three Matlab .m files, including a "master.do".
-
-- Table 5: could not identify code that produces Table 5
-- Neither the program codes, nor the README, identify which tables are produced by what program.
-
-- [ ] The replication package contains a "main" or "master" file(s) which calls all other auxiliary programs.
-
-> INSTRUCTIONS: If the above checkbox for "main" file is NOT checked, leave the following SUGGESTION in the report!
-
-> [SUGGESTED] We strongly advise the use of a single (or a small number of) main control file(s) to automatically reproduce all figures and tables in the paper, without manual interaction.
-
-> NOTE: In-text numbers that reference numbers in tables do not need to be listed. Only in-text numbers that correspond to no table or figure need to be listed.
-
-## Stated Requirements
-
-> INSTRUCTIONS: The authors may have specified specific requirements in terms of software, computer hardware, etc. Please list them here. This is **different** from the Computing Environment of the Replicator. You have the option to amend these with unstated requirements later. If all requirements are listed, check the box "Requirements are complete".
-
-- [ ] No requirements specified
-- [ ] Software Requirements specified as follows:
-  - Software 1
-  - Software 2
-- [ ] Computational Requirements specified as follows:
-  - Cluster size, etc.
-- [ ] Time Requirements specified as follows:
-  - Length of necessary computation (hours, weeks, etc.)
-
-- [ ] Requirements are complete.
-
-> INSTRUCTIONS: If easier, simply copy-and-paste the authors' stated requirements here:
+[Tables in the online appendices]
+Table in appendix - Program(s) generating output
+Table A1 -> return analysis.do, robust sample.do
+Table B1 -> predict payments.do
+Table E1 -> return analysis.do
 
 
 ## Missing Requirements
@@ -224,6 +179,7 @@ There are four provided Stata do files, three Matlab .m files, including a "mast
 
 You can copy the section above, amended if necessary.
 
+
 ## Computing Environment of the Replicator
 
 > INSTRUCTIONS: This might be automated, for now, please fill in manually. Remove examples that are not relevant, adjust examples to fit special circumstances. Some of this is available from the standard log output in Stata or R. Some frequently used details are below. Some of these details can be found as follows:
@@ -247,6 +203,7 @@ You can copy the section above, amended if necessary.
 - Matlab R2019a
 - Intel Compiler 3.14152 (note: there is no such thing, so please verify the version!)
 
+
 ## Replication steps
 
 > INSTRUCTIONS: provide details about your process of accessing the code and data.
@@ -262,9 +219,11 @@ Example:
 4. Ran code as per README, but the third step did not work.
 5. Made changes to the way the third step is run to get it to work.
 
+
 ## Findings
 
 > INSTRUCTIONS: Describe your findings both positive and negative in some detail, for each **Data Preparation Code, Figure, Table, and any in-text numbers**. You can re-use the Excel file created under *Code Description*. When errors happen, be as precise as possible. For differences in figures, provide both a screenshot of what the manuscript contains, as well as the figure produced by the code you ran. For differences in numbers, provide both the number as reported in the manuscript, as well as the number replicated. If too many numbers, contact your supervisor.
+
 
 ### Data Preparation Code
 
@@ -273,6 +232,7 @@ Examples:
 - Program `1-create-data.do` ran without error, output expected data
 - Program `2-create-appendix-data.do` failed to produce any output.
 
+
 ### Tables
 
 Examples:
@@ -280,6 +240,7 @@ Examples:
 - Table 1: Looks the same
 - Table 2: (contains no data)
 - Table 3: Minor differences in row 5, column 3, 0.003 instead of 0.3
+
 
 ### Figures
 
@@ -298,6 +259,7 @@ Figure 3 generated by programs:
 
 ![Replicated version](template/odie.jpg)
 
+
 ### In-Text Numbers
 
 > INSTRUCTIONS: list page and line number of in-text numbers. If ambiguous, cite the surrounding text, i.e., "the rate fell to 52% of all jobs: verified".
@@ -306,31 +268,16 @@ Figure 3 generated by programs:
 
 [ ] There are in-text numbers, but they are not identified in the code
 
-- Page 21, line 5: Same
-
 
 ## Classification
 
-> INSTRUCTIONS: Make an assessment here.
->
-> Full reproduction can include a small number of apparently insignificant changes in the numbers in the table. Full reproduction also applies when changes to the programs needed to be made, but were successfully implemented.
->
-> Partial reproduction means that a significant number (>25%) of programs and/or numbers are different.
->
-> Note that if some data is confidential and not available, then a partial reproduction applies. This should be noted in the Reasons.
->
-> Note that when all data is confidential, it is unlikely that this exercise should have been attempted.
->
-> Failure to reproduce: only a small number of programs ran successfully, or only a small number of numbers were successfully generated (<25%). This also applies when all data is restricted-access and none of the **main** tables/figures are run.
-
 - [ ] full reproduction
-- [ ] full reproduction with minor issues
+- [X] full reproduction with minor issues
 - [ ] partial reproduction (see above)
 - [ ] not able to reproduce most or all of the results (reasons see above)
 
-### Reason for incomplete reproducibility
 
-> INSTRUCTIONS: mark the reasons here why full reproduciblity was not achieved, and enter this information in JIRA
+### Reason for incomplete reproducibility
 
 - [ ] `Discrepancy in output` (either figures or numbers in tables or text differ)
 - [ ] `Bugs in code`  that  were fixable by the replicator (but should be fixed in the final deposit)
