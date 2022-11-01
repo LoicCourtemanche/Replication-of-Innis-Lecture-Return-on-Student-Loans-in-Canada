@@ -2,7 +2,9 @@
 This is the replication of "Innis Lecture: Return on Student Loans in Canada" - Lance Lochner, Qian Liu, and Martin Gervais Working Paper
 
 
-Identifiant pérenne de l'ensemble de données :	doi:10.5683/SP3/R8HN1D
+Identifiant pérenne de l'ensemble de données :	
+Article: https://doi.org/10.1111/caje.12561
+Data: https://doi.org/10.5683/SP3/R8HN1D
 https://borealisdata.ca/dataset.xhtml?persistentId=doi:10.5683/SP3/R8HN1D
 
 Date de publication :	2021-12-06
