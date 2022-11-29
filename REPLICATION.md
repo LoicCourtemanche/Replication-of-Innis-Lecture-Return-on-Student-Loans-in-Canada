@@ -1,4 +1,4 @@
-# [caje.12561] [Innis Lecture: Return on Student Loans in Canada] Validation and Replication results
+# caje.12561 Innis Lecture: Return on Student Loans in Canada Validation and Replication results
 
 > Some useful links:
 > - [Official Data and Code Availability Policy](https://www.aeaweb.org/journals/policies/data-code)
