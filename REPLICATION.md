@@ -157,7 +157,7 @@ Table E1 -> return analysis.do
 
 > INSTRUCTIONS: If it turns out that some requirements were not stated/ are incomplete (software, packages, operating system), please list the *missing* list of requirements here. Remove lines that are not necessary. If the stated requirements are complete, delete this entire section, including the [REQUIRED] tag at the end.
 
-- [X Software Requirements 
+- [X Software Requirements
   - [X] Stata
     - Stata 17
 - [ ] Computational Requirements specified as follows:
@@ -182,17 +182,17 @@ Table E1 -> return analysis.do
 > INSTRUCTIONS: Describe your findings both positive and negative in some detail, for each **Data Preparation Code, Figure, Table, and any in-text numbers**. You can re-use the Excel file created under *Code Description*. When errors happen, be as precise as possible. For differences in figures, provide both a screenshot of what the manuscript contains, as well as the figure produced by the code you ran. For differences in numbers, provide both the number as reported in the manuscript, as well as the number replicated. If too many numbers, contact your supervisor.
 
 
-### Data Preparation Code
 
+### Data Preparation Code
 
 ### Tables
 Table 1: All results are identical, except for the IRR which is not produced by the code
 Table 2: All results are identical, except for the IRR which is not produced by the code
-Table 3: All results are identical, except for the IRR which is not produced by the code
-Table 4: All results are identical, except for the IRR which is not produced by the code
+Table 3: All results are identical
+Table 4: All results are identical
 Table 5: All results are identical, except for the IRR which is not produced by the code
 
-notes: Some results are not rounded correctly according to the standard, but the reason why this was done seems to be to preserve a difference between two results which would disappear due to rounding
+notes: Some results are not rounded correctly according to the standard, but the reason why this was done seems to be to preserve a difference between two results which would disappear due to rounding. It doesn't affect the conclusion of the paper. 
 
 ### Figures
 
