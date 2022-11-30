@@ -191,16 +191,16 @@ timer on 1
 
 local variant = cond(c(MP),"MP",cond(c(SE),"SE",c(flavor)) )   
 
-di _newline(2) "Replication done by :"						        ///
+di _newline(2) "Replication done by :"				///
 _newline "Loïc Courtemanche - L.courtemanche@outlook.com"	///
-_newline "`c(current_date)' at `c(current_time)'"			    ///
-_newline(2) "======= SYSTEM DIAGNOSTICS =======" 			    ///
-_newline "Stata version: `c(stata_version)'" 				      ///
-_newline "Updated as of: `c(born_date)'" 					        ///
-_newline "Variant:       `variant'" 						          ///
-_newline "Processors:    `c(processors)'" 					      ///
-_newline "OS:            `c(os)' `c(osdtl)'" 				      ///
-_newline "Machine type:  `c(machine_type)'" 				      ///
+_newline "`c(current_date)' at `c(current_time)'"		///
+_newline(2) "======= SYSTEM DIAGNOSTICS =======" 		///
+_newline "Stata version: `c(stata_version)'" 			///
+_newline "Updated as of: `c(born_date)'" 			///
+_newline "Variant:       `variant'" 				///
+_newline "Processors:    `c(processors)'" 			///
+_newline "OS:            `c(os)' `c(osdtl)'" 			///
+_newline "Machine type:  `c(machine_type)'" 			///
 _newline "=================================="
 
 *Create folder for ours results
@@ -247,6 +247,128 @@ In the "clean_CSLP_needs.do" file:
 
 2: For table 5, change the line "// sum undergrad_return [weight=loandisb]" for "sum undergrad_return [weight=loandisb]"
 
+## Improvement steps
+From the orignal files of the autors:
+
+1. For all file name and path call in the do files they have been put in ""
+------------------------------------
+Main.do
+------------------------------------
+1. Replication modification
+/*	== code ==  */
+************************************
+//Replication modification
+************************************
+
+set dp comma , perm
+
+global replication "M:\Equipes\Projet 10054\Replication\courloi10054\Improvement"
+
+version 16
+
+log using "replication.log", name(replication) replace
+timer on 1
+
+local variant = cond(c(MP),"MP",cond(c(SE),"SE",c(flavor)) )   
+
+di _newline(2) "Replication done by :"					///
+_newline "Loïc Courtemanche - L.courtemanche@outlook.com"		///
+_newline "`c(current_date)' at `c(current_time)'"			///
+_newline(2) "======= SYSTEM DIAGNOSTICS =======" 			///
+_newline "Stata version: `c(stata_version)'" 				///
+_newline "Updated as of: `c(born_date)'" 				///
+_newline "Variant:       `variant'" 					///
+_newline "Processors:    `c(processors)'" 				///
+_newline "OS:            `c(os)' `c(osdtl)'" 				///
+_newline "Machine type:  `c(machine_type)'" 				///
+_newline "=================================="
+
+*Create folder for ours results
+capture mkdir results
+capture mkdir "C:/Users/courloi2/data/cleaned"
+
+
+************************************
+//Ends of replication modification
+************************************
+/*	== code ==  */
+
+2. Change path
+3. Add : cd "$project"
+4. baseline sample analysis
+	/*	== code ==  */
+	//baseline sample analysis
+	if ($check_sample==0) {
+		*Create globals to test for news results
+		*predict_payments.do -> test for other values
+		foreach rrate of numlist 0.045 0.05 0.055 0.06 0.065  {							// 0.055 is the original value	
+			global rrate `rrate'
+			global nrrate = `rrate'*1000		
+			
+			//impute payments beyond data periods
+			do "predict_payments"
+
+			//calculate return
+			do "calc_return"
+			
+			foreach Cohort of numlist  2003 2004 2005 2006 2007 2008 {					// 2005 is the original value
+				global Cohort `Cohort'
+				//return statistics, regressions
+				do "return_analysis"
+			}
+		}
+	}
+	/*	== code ==  */
+5. Add at the end
+	/*	== code ==  */
+		timer off 1
+		timer list
+		log close _all
+	/*	== code ==  */
+	
+------------------------------------
+clean_CSLP_disbursement.do
+------------------------------------	
+1. Add at line 8 : 
+	/*	== code ==  */
+	//make all variable name lowercase
+	foreach v of varlist _all{
+		capture rename `v' `=lower("`v'")'
+	}
+	/*	== code ==  */
+	
+------------------------------------
+clean_CSLP_needs.do
+------------------------------------	
+1. Add at line 8 : 
+	/*	== code ==  */
+	//make all variable name lowercase
+	foreach v of varlist _all{
+		capture rename `v' `=lower("`v'")'
+	}
+	/*	== code ==  */
+	
+------------------------------------
+predict_payments.do
+------------------------------------	
+1. Change "sca rrate=0.055" for "sca rrate=${rrate}" line 16
+
+------------------------------------
+return_analysis.do
+------------------------------------
+1: Add : capture log using "results/return_analysis ${Cohort} rrate ${nrrate}" , replace t name(ReturnA)
+2: Change "keep if cohort==2005" for "keep if cohort==${Cohort}"
+3: Change "keep if (yearstudy==3 & last_yearcons<=2008)|(yearstudy==4 & last_yearcons<=2007)" for "keep if (yearstudy==3 & last_yearcons<=(${Cohort}+3))|(yearstudy==4 & last_yearcons<=(${Cohort}+2))"
+4: Add in "statistics in Table 1 & 2" 
+	/*	== code ==  */
+	gen All = 1
+	table All, c(n undergrad_return  mean undergrad_return semean undergrad_return mean default_3yr mean rap_3yr)
+	/*	== code ==  */
+5. Add : "graph save "results/Fig 4 ${Cohort} rrate ${nrrate}" , replace"
+6. Add : "graph save "results/Fig 3 ${Cohort} rrate ${nrrate}" , replace"
+7: Add at the end : capture log close ReturnA${Cohort}
+8: Replace in table 5 section : "// sum undergrad_return [weight=loandisb]" by "sum undergrad_return [weight=loandisb] "
+
 ## Findings
 
 > INSTRUCTIONS: Describe your findings both positive and negative in some detail, for each **Data Preparation Code, Figure, Table, and any in-text numbers**. You can re-use the Excel file created under *Code Description*. When errors happen, be as precise as possible. For differences in figures, provide both a screenshot of what the manuscript contains, as well as the figure produced by the code you ran. For differences in numbers, provide both the number as reported in the manuscript, as well as the number replicated. If too many numbers, contact your supervisor.
@@ -260,6 +382,7 @@ The result dispaly in the first row and first column of the table 5 is produced 
 The IRR result in the table are not produce by the program. Event if those result are not essential for maintaining the conclusions reached in the paper, they should nevertheless be produced by the code.
 
 Improvement findings:
+
 
 
 ### Data Preparation Code
