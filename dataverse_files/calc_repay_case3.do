@@ -1,5 +1,5 @@
 
-use $cleaned/CSLP_repay_cohort_$y, clear
+use "$cleaned/CSLP_repay_cohort_$y", clear
 
 
 keep if flag_case3==1
@@ -136,7 +136,7 @@ by methid: egen total_monthsrap = sum(max_monthsrap)
 *************************************************************
 drop if loanyear<2005
 keep methid loanyear total_monthsrap paidprin_annual paidint_annual repayment flag_paidprin flag_amount flag_ratio
-save $cleaned/repayment_case3_$y, replace
+save "$cleaned/repayment_case3_$y", replace
 restore
 
 
@@ -209,7 +209,7 @@ drop nstatus_rt nstatus_p nstatus_b8 nstatus_other
 duplicates drop methid datecons new_studylevel loanyear, force
 
 
-merge 1:1 methid loanyear using $cleaned/repayment_case3_$y
+merge 1:1 methid loanyear using "$cleaned/repayment_case3_$y"
 drop _merge
 
 sort methid loanyear, stable
@@ -242,7 +242,7 @@ gen newoutprin = sum_prin-newpaidprin
 replace newoutprin=0 if newoutprin<0
 replace flag_case3=1 if flag_case3>=.
 
-save $cleaned/repay_case3_$y, replace
+save "$cleaned/repay_case3_$y", replace
 
 
 
