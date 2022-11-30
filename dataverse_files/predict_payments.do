@@ -13,7 +13,8 @@ append using "$cleaned/repay_wide_2008"
 ta cohort
 
 //interest rate
-sca rrate=0.055
+sca rrate=${rrate}
+
 
 
 //Tobit regression
