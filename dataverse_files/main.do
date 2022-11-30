@@ -104,15 +104,26 @@ forval t=2003/`ymax'{
 
 //baseline sample analysis
 if ($check_sample==0) {
-	//impute payments beyond data periods
-	"do predict_payments"
+	*Create globals to test for news results
+	*predict_payments.do -> test for other values
+	foreach rrate of numlist 0.045 0.05 0.055 0.06 0.065  {					//-> 0.055 is the original value	
+		global rrate `rrate'												
+		global nrrate = `rrate'*1000											
+			
+		//impute payments beyond data periods
+		do "predict_payments"
 
-	//calculate return
-	"do calc_return"
-
-	//return statistics, regressions
-	"do return_analysis"
+		//calculate return
+		do "calc_return"
+			
+		foreach Cohort of numlist  2003 2004 2005 2006 2007 2008 {			//-> 2005 is the original value
+			global Cohort `Cohort'											
+			//return statistics, regressions								
+			"do return_analysis"											
+		}																	
+	}																		
 }
+
 
 //statistics for different sample (online appendix Table A1)
 if ($check_sample==1|$check_sample==2) {
