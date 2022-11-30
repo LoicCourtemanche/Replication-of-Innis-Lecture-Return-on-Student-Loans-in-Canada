@@ -66,7 +66,7 @@ keep if studylevel==2
 by methid: egen last_undergrad_year=max(yearstudyend)
 keep methid last_undergrad_year
 by methid: keep if _n==1
-save $cleaned/last_undergrad_year, replace
+save "$cleaned/last_undergrad_year", replace
 restore
 
 
@@ -78,6 +78,6 @@ format last_datecons %tdD_m_Y
 gen last_yearcons = year(last_datecons)-(month(last_datecons)<8)
 
 
-save $cleaned/CSLP_repay, replace
+save "$cleaned/CSLP_repay", replace
 
 
