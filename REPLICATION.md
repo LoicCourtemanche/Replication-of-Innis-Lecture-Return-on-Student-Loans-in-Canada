@@ -383,7 +383,9 @@ The IRR result in the table are not produce by the program. Event if those resul
 
 Improvement findings:
 
+Two robustess check have been conduct on the code. The first one was to change the interrest rate use in "predict_payments.do" since the reason why they choose 5.5 % is not explain. The second robustness check run on this code was to apply the same methodology for all the available cohort in the dataset. 
 
+For the interrest rates robusness check, the conclusion are not affected by a change from 4.5 % to 6.5 %. The results are also lightly affected by that change. For the others cohortes, the  
 
 ### Data Preparation Code
 
