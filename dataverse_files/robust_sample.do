@@ -1,18 +1,15 @@
 
-
-
-
-use $cleaned/repay_2005, clear
-append using $cleaned/repay_2006
-append using $cleaned/repay_2007
-append using $cleaned/repay_2008
-append using $cleaned/repay_2009
-append using $cleaned/repay_2010
-append using $cleaned/repay_2011
-append using $cleaned/repay_2012
-append using $cleaned/repay_2013
-append using $cleaned/repay_2014
-append using $cleaned/repay_2015
+use "$cleaned/repay_2005", clear
+append using "$cleaned/repay_2006"
+append using "$cleaned/repay_2007"
+append using "$cleaned/repay_2008"
+append using "$cleaned/repay_2009"
+append using "$cleaned/repay_2010"
+append using "$cleaned/repay_2011"
+append using "$cleaned/repay_2012"
+append using "$cleaned/repay_2013"
+append using "$cleaned/repay_2014"
+append using "$cleaned/repay_2015"
 
 
 //undergrad loan amount
@@ -32,7 +29,7 @@ drop loanyear
 
 replace undergrad_loan = . if undergrad_loan<0
 
-merge 1:m methid using $cleaned/CSLP_needs_disbursement
+merge 1:m methid using "$cleaned/CSLP_needs_disbursement"
 drop if _merge==1 //no obs
 drop if _merge==2 //not this cohort
 drop _merge
@@ -146,27 +143,4 @@ ta paid_3 if last_yearcons<=2013
 
 
 sum loandisb
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
