@@ -1,5 +1,4 @@
-
-use $cleaned/CSLP_repay_cohort_$y, clear
+use "$cleaned/CSLP_repay_cohort_$y", clear
 
 
 gen eligible = 0
@@ -185,7 +184,7 @@ gen repayment = paidprin_annual + paidint_annual
 by methid: egen total_monthsrap = sum(max_monthsrap)
 
 
-save $cleaned/repay_other_$y, replace
+save "$cleaned/repay_other_$y", replace
 
 
 
