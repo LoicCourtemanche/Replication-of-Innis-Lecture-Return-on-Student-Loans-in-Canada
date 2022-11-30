@@ -4,6 +4,12 @@
 ************************************
 
 use "$raw/CSLP_PCPE_disbursement_f1_v1.dta", clear
+
+//make all variable name lowercase
+foreach v of varlist _all{
+    capture rename `v' `=lower("`v'")'
+}
+
 drop if methid==""
 
 //drop part time loan disbursement
@@ -21,7 +27,7 @@ by methid: egen max_dup=max(dup)
 drop if max_dup>0
 drop max_dup dup
 
-merge m:1 methid using $cleaned/last_undergrad_year
+merge m:1 methid using "$cleaned/last_undergrad_year"
 drop if _merge==1 //not consolidate yet
 drop if _merge==2 //early cohort, no disbursement record
 drop _merge 
@@ -34,13 +40,13 @@ drop if loanyear>last_undergrad_year
 
 keep methid loanyear loandisb gender issueprov fieldstudy insttype edinst edinstname yearstudy birthyear register_group_id
 
-save $cleaned/CSLP_disbursement, replace
+save "$cleaned/CSLP_disbursement", replace
 
 
 //last undergraduate loan disbursement
 sort methid loanyear
 by methid: keep if _n==_N
 ren loanyear last_ugloan_disb
-save $cleaned/last_ugloan_disb, replace
+save "$cleaned/last_ugloan_disb", replace
 
 
