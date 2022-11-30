@@ -1,3 +1,4 @@
+capture log using "results/return_analysis ${Cohort} rrate ${nrrate}" , replace t name(ReturnA)
 
 use "$cleaned/return_2003_2008", clear
 
@@ -52,7 +53,7 @@ foreach var in gender issueprov insttype fieldstudy{
 
 //year in study
 ta yearstudy
-keep if (yearstudy==3 & last_yearcons<=2008)|(yearstudy==4 & last_yearcons<=2007)
+keep if (yearstudy==3 & last_yearcons<=(${Cohort}+3))|(yearstudy==4 & last_yearcons<=(${Cohort}+2))
 
 
 //drop trade because very few
@@ -172,7 +173,7 @@ graph twoway (kdensity undergrad_return if default_3yr==1, lpattern(dash) lcolor
 (kdensity undergrad_return if default_3yr==0 & rap_3yr==0 & bankruptcy_3yr==0, lpattern(solid) lcolor(black)) ///
 , xtitle("Realized Return") ytitle("Density") graphregion(color(white)) ///
 legend (label(1 "Default in first 3 years") label(2 "Enter RAP in first 3 years") label(3 "Not default/RAP/bankruptcy in first 3 years") textwidth(45))
-
+graph save "results/Fig 4 ${Cohort} rrate ${nrrate}" , replace
 
 
 *************************************
@@ -532,7 +533,7 @@ restore
 graph twoway (kdensity undergrad_return, lpattern(solid) lcolor(black)) ///
 (kdensity predict_return, lpattern(dash) lcolor(black)), xtitle("Return") ytitle("Density") graphregion(color(white)) ///
 legend (label(1 "Realized return") label(2 "Predicted return"))
-
+graph save "results/Fig 3 ${Cohort} rrate ${nrrate}" , replace
 
 
 ***********************************
@@ -598,8 +599,4 @@ sum predict_return, d
 sum neg_predict
 
 
-
-
-
-
-
+capture log close capture log close ReturnA
