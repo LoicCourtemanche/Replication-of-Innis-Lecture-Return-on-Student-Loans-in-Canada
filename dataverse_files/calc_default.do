@@ -3,7 +3,7 @@
 // set up parameter values
 ************************************************
 
-use frac_def, clear
+use "frac_def", clear
 
 //some frac_def_rehab missing, replace to 0
 forval i=1/6{
@@ -19,7 +19,7 @@ forval i=1/8{
 
 
 //matrix is 1*6
-use frac_rehab, clear
+use "frac_rehab", clear
 
 //aggregate average
 egen total_amt_rehab=rowtotal(total_amt_rehab*)
@@ -45,7 +45,7 @@ forval i=1/8{
 ************************************************
 // calculate payments after default
 ************************************************
-use $cleaned/default_$y, clear
+use "$cleaned/default_$y", clear
 gen date = datedefault-datecons
 drop if date<=0
 
@@ -137,7 +137,7 @@ forval i=1/8{
 
 keep methid post_default_payment*
 
-save $cleaned/default_pdv_$y, replace
+save "$cleaned/default_pdv_$y", replace
 
 
 
