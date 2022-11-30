@@ -7,14 +7,14 @@
 sca irate=0.028
 
 
-use $cleaned/repay_2003, clear
-append using $cleaned/repay_2004
-append using $cleaned/repay_2005
-append using $cleaned/repay_2006
-append using $cleaned/repay_2007
-append using $cleaned/repay_2008
+use "$cleaned/repay_2003", clear
+append using "$cleaned/repay_2004"
+append using "$cleaned/repay_2005"
+append using "$cleaned/repay_2006"
+append using "$cleaned/repay_2007"
+append using "$cleaned/repay_2008"
 
-merge m:1 methid using $cleaned/predict_2003_2008
+merge m:1 methid using "$cleaned/predict_2003_2008"
 
 sort methid loanyear, stable
 by methid: replace last_status=last_status[_N]
@@ -33,7 +33,7 @@ forval i=1/8{
 
 
 //first discount to last undergrad loan disbursement year
-merge m:1 methid using $cleaned/last_ugloan_disb
+merge m:1 methid using "$cleaned/last_ugloan_disb"
 drop if _merge==1 //no information on last ugloan disbursement
 drop if _merge==2 //not this cohort
 drop _merge
@@ -117,7 +117,7 @@ keep methid undergrad_return educcat total_loan undergrad_loan last_ugloan_disb 
 
 
 //merge with needs and disbursement data
-merge 1:m methid using $cleaned/CSLP_needs_disbursement
+merge 1:m methid using "$cleaned/CSLP_needs_disbursement"
 drop if _merge==1 //no obs
 drop if _merge==2 //not this cohort
 drop _merge
