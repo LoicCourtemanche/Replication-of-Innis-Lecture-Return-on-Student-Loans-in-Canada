@@ -153,7 +153,7 @@ Table E1 -> return analysis.do
 
 ## Missing Requirements
 
-- [X Software Requirements
+- [X] Software Requirements
   - [X] Stata
     - Stata 16
 - [X] Computational Requirements specified as follows:
@@ -371,21 +371,19 @@ return_analysis.do
 
 ## Findings
 
-> INSTRUCTIONS: Describe your findings both positive and negative in some detail, for each **Data Preparation Code, Figure, Table, and any in-text numbers**. You can re-use the Excel file created under *Code Description*. When errors happen, be as precise as possible. For differences in figures, provide both a screenshot of what the manuscript contains, as well as the figure produced by the code you ran. For differences in numbers, provide both the number as reported in the manuscript, as well as the number replicated. If too many numbers, contact your supervisor.
-
 Replication findings:
 Most results are produce by the proram. All the figure look similar and the small difference in the tables are cause by the rounding of the result with the purpose to keep a diférencebetween result that will disapeared if they were rouded normaly. Fictitious example: Result 1 is 0,005 and result 2 is 0,014. Both should be round to 0,01 but the autors choose to round one to 0,01 and the other to 0,00 (or 0,02) depending on the case to preserved the gap of nearly 0,01 between the two results. Those unusual rounding do not affect the conclusion of the paper. 
 
 The first row of the table 1 is not produce by the program, but can be extract by a little modification stated previously. (step 1 of "clean_CSLP_needs.do" modification in "Replication steps") 
 The result dispaly in the first row and first column of the table 5 is produced by a line of code that has been commented out of the code. (step 2 of "clean_CSLP_needs.do" modification in "Replication steps")
 
-The IRR result in the table are not produce by the program. Event if those result are not essential for maintaining the conclusions reached in the paper, they should nevertheless be produced by the code.
+The IRR result in the tables are not produce by the program. Event if those result are not essential for maintaining the conclusions reached in the paper, they should nevertheless be produced by the code.
 
 Improvement findings:
 
 Two robustess check have been conduct on the code. The first one was to change the interrest rate use in "predict_payments.do" since the reason why they choose 5.5 % is not explain. The second robustness check run on this code was to apply the same methodology for all the available cohort in the dataset. 
 
-For the interrest rates robusness check, the conclusion are not affected by a change from 4.5 % to 6.5 %. The results are also lightly affected by that change. For the others cohortes, the  
+For the robustness test on the change in interest rate, the conclusion are not affected by a change from 5.5 % by 4.5 %, 5 %, 6 % and 6.5 %. The results are only slightly affected by the change. For the robustness test on the change of cohortes, the conclusion are also not affected. The empirical result 
 
 ### Data Preparation Code
 
