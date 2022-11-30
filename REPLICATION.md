@@ -254,10 +254,10 @@ In the "clean_CSLP_needs.do" file:
 Replication findings:
 Most results are produce by the proram. All the figure look similar and the small difference in the tables are cause by the rounding of the result with the purpose to keep a diférencebetween result that will disapeared if they were rouded normaly. Fictitious example: Result 1 is 0,005 and result 2 is 0,014. Both should be round to 0,01 but the autors choose to round one to 0,01 and the other to 0,00 (or 0,02) depending on the case to preserved the gap of nearly 0,01 between the two results. Those unusual rounding do not affect the conclusion of the paper. 
 
-The first row of the table 1 is not produce by the program but can be by a little modification stated previously. (step 1 of "clean_CSLP_needs.do" modification in "Replication steps") 
+The first row of the table 1 is not produce by the program, but can be extract by a little modification stated previously. (step 1 of "clean_CSLP_needs.do" modification in "Replication steps") 
 The result dispaly in the first row and first column of the table 5 is produced by a line of code that has been commented out of the code. (step 2 of "clean_CSLP_needs.do" modification in "Replication steps")
 
-The IRR result in the table are not produce by the program. Event if those result doesn't are not essential for maintaining the conclusions reached in the paper, they should nevertheless be produced by the code.
+The IRR result in the table are not produce by the program. Event if those result are not essential for maintaining the conclusions reached in the paper, they should nevertheless be produced by the code.
 
 Improvement findings:
 
