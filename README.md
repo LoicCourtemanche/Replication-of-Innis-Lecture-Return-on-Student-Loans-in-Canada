@@ -3,6 +3,7 @@ This is the replication of "Innis Lecture: Return on Student Loans in Canada" - 
 
 ## Reproducer
 Loïc Courtemanche - l.courtemanche@outlook.com
+                  - courtemanche.loic@courrier.uqam.ca
 
 Article: https://doi.org/10.1111/caje.12561
 Data: https://doi.org/10.5683/SP3/R8HN1D
