@@ -3,7 +3,7 @@
 **************************************************
 // clean repayment by cohort(last consolidation year)
 **************************************************
-use $cleaned/CSLP_repay, clear
+use "$cleaned/CSLP_repay", clear
 
 //clean separately by last consolidation year
 keep if last_yearcons==$y
@@ -218,26 +218,26 @@ if ($keep_consistent==1) {
 }
 
 
-save $cleaned/CSLP_repay_cohort_$y, replace
+save "$cleaned/CSLP_repay_cohort_$y", replace
 
 
 **************************************************
 //annual payments for other cases except case 3
 **************************************************
-do calc_repay_other
+do "calc_repay_other"
 
 **************************************************
 //annual payments for case 3
 **************************************************
-do calc_repay_case3
+do "calc_repay_case3"
 
 
 
 *************************************
 //combine
 *************************************
-use $cleaned/repay_other_$y, clear
-append using $cleaned/repay_case3_$y
+use "$cleaned/repay_other_$y", clear
+append using "$cleaned/repay_case3_$y"
 
 **************************************************
 //sample selection on paidprin
@@ -302,12 +302,12 @@ preserve
 keep if last_status==4
 keep methid datecons datedefault min_defaultamount loanyear
 drop if min_defaultamount>=.
-save $cleaned/default_$y, replace
+save "$cleaned/default_$y", replace
 
 do calc_default
 restore
 
-merge m:1 methid using $cleaned/default_pdv_$y
+merge m:1 methid using "$cleaned/default_pdv_$y"
 drop _merge
 	
 	
@@ -373,7 +373,7 @@ forval i=1/11{
 	
 }
 
-save $cleaned/repay_$y, replace
+save "$cleaned/repay_$y", replace
 
 
 
@@ -384,7 +384,7 @@ save $cleaned/repay_$y, replace
 if ($check_sample==0) {
 
 //regress payments after t on observables at t 
-use $cleaned/repay_$y, clear
+use "$cleaned/repay_$y", clear
 
 drop if studylevel!=last_studylevel
 
@@ -509,16 +509,10 @@ forval i=1/`n'{
 }
 
 gen cohort=$y
-save $cleaned/repay_wide_$y, replace
+save "$cleaned/repay_wide_$y", replace
 
 
 }
-
-
-
-
-
-
 
 
 
