@@ -1,12 +1,12 @@
 
 
 
-use $cleaned/repay_wide_2003, clear
-append using $cleaned/repay_wide_2004
-append using $cleaned/repay_wide_2005
-append using $cleaned/repay_wide_2006
-append using $cleaned/repay_wide_2007
-append using $cleaned/repay_wide_2008
+use "$cleaned/repay_wide_2003", clear
+append using "$cleaned/repay_wide_2004"
+append using "$cleaned/repay_wide_2005"
+append using "$cleaned/repay_wide_2006"
+append using "$cleaned/repay_wide_2007"
+append using "$cleaned/repay_wide_2008"
 
 
 
@@ -233,7 +233,7 @@ reshape wide post_repayment, i(methid) j(year)
 
 
 
-save $cleaned/predict_2003_2008, replace
+save "$cleaned/predict_2003_2008", replace
 
 
 
