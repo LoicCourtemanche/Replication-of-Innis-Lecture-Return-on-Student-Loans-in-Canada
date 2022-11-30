@@ -119,6 +119,9 @@ ta sum_loan_cat
 //statistics in Table 1 & 2  
 //column (3) in Table A1
 ***********************************
+gen All = 1
+table All, c(n undergrad_return  mean undergrad_return semean undergrad_return mean default_3yr mean rap_3yr)
+drop All
 
 table gender_num, c(n undergrad_return  mean undergrad_return semean undergrad_return mean default_3yr mean rap_3yr)
 
