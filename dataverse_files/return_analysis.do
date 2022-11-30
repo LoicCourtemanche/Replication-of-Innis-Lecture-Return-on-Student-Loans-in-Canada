@@ -6,8 +6,8 @@ use "$cleaned/return_2003_2008", clear
 *********************************************
 gen cohort=loanyear
 
-//loan disbursement in 2005
-keep if cohort==2005
+//loan disbursement
+keep if cohort==${Cohort}
 
 
 //age 18-30 at loan disbursement
