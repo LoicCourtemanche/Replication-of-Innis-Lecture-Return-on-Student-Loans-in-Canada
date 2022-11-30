@@ -5,6 +5,11 @@
 
 use "$raw/CSLP_PCPE_needs_f1_v1.dta", clear
 
+//make all variable name lowercase
+foreach v of varlist _all{
+    capture rename `v' `=lower("`v'")'
+}
+
 //get category & parental income 
 drop if methid==""
 
@@ -14,7 +19,7 @@ duplicates report methid loanyear
 keep methid loanyear category dependentsunder12 dependents12plus familysize spouseincome parentincome
 
 //merge with disbursement data
-merge 1:1 methid loanyear using $cleaned/CSLP_disbursement
+merge 1:1 methid loanyear using "$cleaned/CSLP_disbursement"
 
 drop if _merge==1 //apply but did not get loan disbursement
 drop _merge
@@ -32,7 +37,7 @@ label define parentincome_cat 1 "<0" 2 "[0,20000)" 3 "[20000,40000)" 4 "[40000,6
 label values parentincome_cat parentincome_cat
 ta parentincome_cat
 
-save $cleaned/CSLP_needs_disbursement, replace
+save "$cleaned/CSLP_needs_disbursement", replace
 
 
 
