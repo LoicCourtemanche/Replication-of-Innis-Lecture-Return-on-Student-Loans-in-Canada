@@ -539,7 +539,7 @@ legend (label(1 "Realized return") label(2 "Predicted return"))
 //Table 5
 ***********************************
 //weighted return if exclude high return borrowers
-// sum undergrad_return [weight=loandisb] 
+sum undergrad_return [weight=loandisb] 
 sum undergrad_return [weight=loandisb] if predict_return<=0
 sum undergrad_return [weight=loandisb] if predict_return<=0.01
 sum undergrad_return [weight=loandisb] if predict_return<=0.03
