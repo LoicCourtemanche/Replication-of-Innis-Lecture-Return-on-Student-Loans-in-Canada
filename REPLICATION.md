@@ -193,52 +193,6 @@ From the orignal dataverse files:
 
 6. Run the "main.do" file
 
-## Improvement steps
-From the orignal dataverse files:
-1. Every file call in the program has been put between ""
-
-2. Modify the "main.do" file:
-- [Create a global with the path to the project](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)
-- [Set he currend directory to the path of the global created](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)
-- [Start a log file for the improvement](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)
-- [Display the specifications of the machine](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)
-- [Set a timer](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)  
-
-- [Change the original global created to set a relative path](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR45)
-
-- [Set the loops that make the programm run for eacch combinaison of rrate (4.5 %, 5 %, 5.5 %, 6 %, 6.5 %) and cohorte (2003, 2004, 2005, 2006, 2007, 2008)](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR107-R124)
-
-- [End the timer start at the begginning of the program](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR133-R135)
-- [Display how long it take to the machine to run the program](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR133-R135)
-- [Close all open log files ](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR133-R135)
-
-3.  Modify the "clean_CSLP_disbursement.do" file:
-- [Make all variable name lowercase](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-a00236df0f97886f4dea47e57483a1ce4bc27ce36a7468afbd478881c9236534R7-R12)
-
-4.  Modify the "clean_CSLP_needs.do" file:
-- [Make all variable name lowercase](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-85e75ed4ae98be213e2aec86a6afc08412537383ca5c9712f1b2c5d1d822168cR8-R12)
-
-5. Modify the "predict_payments.do" file:
-- [Set the rrate as the value of the global generated in the loops of the "main.do" file](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-85e75ed4ae98be213e2aec86a6afc08412537383ca5c9712f1b2c5d1d822168cR8-R12)
-
-6.  Modify the "return_analysis.do" file:
-- [Created a log file for the results of each combinaisons of rrate and cohorte.](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR1)
-
-- [Set the cohorte as the value of the global generated in the loops of the "main.do" file](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR10-R11)
-
-- [Adapte the modification to the cohorte curently set](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR56)
-
-- [Generated the results for table 1, the first row (except IRR results)](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR123-R125)
-
-- [Save the "Figure 4" generate by the program for each cohorte and rrate](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR176)
-
-- [Save the "Figure 3" generate by the program for each cohorte and rrate](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR536)
-
-- [Generated the results for table 5, the first row](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR536)
-
-- [Close the log file for the results by cohorte and rrate](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR543)
-
-7. Run the "main.do" file
 	
 ## Replication Findings
 
@@ -306,6 +260,53 @@ Figure 4: There is no visible difference
 - [ ] `Data missing` is marked when data *should* be available, but was erroneously not provided, or is not accessible via the procedures described in the replication package
 - [ ] `Data not available` is marked when data requires additional access steps, for instance purchase or application procedure. 
 
+
+## Improvement steps
+From the orignal dataverse files:
+1. Every file call in the program has been put between ""
+
+2. Modify the "main.do" file:
+- [Create a global with the path to the project](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)
+- [Set he currend directory to the path of the global created](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)
+- [Start a log file for the improvement](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)
+- [Display the specifications of the machine](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)
+- [Set a timer](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)  
+
+- [Change the original global created to set a relative path](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR45)
+
+- [Set the loops that make the programm run for eacch combinaison of rrate (4.5 %, 5 %, 5.5 %, 6 %, 6.5 %) and cohorte (2003, 2004, 2005, 2006, 2007, 2008)](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR107-R124)
+
+- [End the timer start at the begginning of the program](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR133-R135)
+- [Display how long it take to the machine to run the program](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR133-R135)
+- [Close all open log files ](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR133-R135)
+
+3.  Modify the "clean_CSLP_disbursement.do" file:
+- [Make all variable name lowercase](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-a00236df0f97886f4dea47e57483a1ce4bc27ce36a7468afbd478881c9236534R7-R12)
+
+4.  Modify the "clean_CSLP_needs.do" file:
+- [Make all variable name lowercase](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-85e75ed4ae98be213e2aec86a6afc08412537383ca5c9712f1b2c5d1d822168cR8-R12)
+
+5. Modify the "predict_payments.do" file:
+- [Set the rrate as the value of the global generated in the loops of the "main.do" file](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-85e75ed4ae98be213e2aec86a6afc08412537383ca5c9712f1b2c5d1d822168cR8-R12)
+
+6.  Modify the "return_analysis.do" file:
+- [Created a log file for the results of each combinaisons of rrate and cohorte.](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR1)
+
+- [Set the cohorte as the value of the global generated in the loops of the "main.do" file](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR10-R11)
+
+- [Adapte the modification to the cohorte curently set](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR56)
+
+- [Generated the results for table 1, the first row (except IRR results)](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR123-R125)
+
+- [Save the "Figure 4" generate by the program for each cohorte and rrate](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR176)
+
+- [Save the "Figure 3" generate by the program for each cohorte and rrate](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR536)
+
+- [Generated the results for table 5, the first row](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR536)
+
+- [Close the log file for the results by cohorte and rrate](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR543)
+
+7. Run the "main.do" file
 
 
 ## Improvement findings:
