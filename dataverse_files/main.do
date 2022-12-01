@@ -4,16 +4,16 @@ set maxvar 32767
 capture log close
 
 ************************************
-//Replication modification
+//Improvement modification
 ************************************
 
-global replication "M:\Equipes\Projet 10054\Replication\courloi10054\Improvement"
+global Improvement "M:\Equipes\Projet 10054\Replication\courloi10054\Improvement"
 
-cd ${replication}
+cd ${Improvement}
 
 version 16
 
-log using "replication.log", name(replication) replace
+log using "Improvement.log", name(Improvement) replace
 timer on 1
 
 local variant = cond(c(MP),"MP",cond(c(SE),"SE",c(flavor)) )   
@@ -31,7 +31,7 @@ _newline "Machine type:  `c(machine_type)'" 				///
 _newline "=================================="
 
 ************************************
-//Ends of replication modification
+//Ends of Improvement modification
 ************************************
 
 ************************************
@@ -42,7 +42,7 @@ capture mkdir cleaned
 
 
 //put raw restricted data in raw subfolder
-global project "${replication}"
+global project "${Improvement}"
 global raw "$project/raw"
 global cleaned "$project/cleaned"
 
