@@ -164,214 +164,38 @@ Table E1 -> return analysis.do
 ## Computing Environment of the Replicator
 
 ## Replication steps
-
-> INSTRUCTIONS: provide details about your process of accessing the code and data.
-> Do NOT detail things like "I save them on my Desktop".
-> DO describe actions   that you did  as per instructions ("I added a config.do")
-> DO describe any other actions you needed to do ("I had to make changes in multiple programs"), without going into detail (the commit log can provide that information)
-
+From the orignal dataverse files:
 1. Every file call in the program has been put between ""
 
-In the "main.do" file:
-1. Change Change : {global project "."} by {global project "$replication"}
-2. Add this code at the line 6
--------------Code-------------
-************************************
-//Replication modification
-************************************
+2. Modify the "main.do" file:
+- [Create a global with the path to the project ](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/commit/04a4911b08724b40d53c3cd406ce31b34f2178f8#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)
+- [Set he currend directory to the path of the global created](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/commit/04a4911b08724b40d53c3cd406ce31b34f2178f8#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)
+- [Start a log file for the replication](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/commit/04a4911b08724b40d53c3cd406ce31b34f2178f8#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)
+- [Display the specifications of the machine](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/commit/04a4911b08724b40d53c3cd406ce31b34f2178f8#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36) 
+- [Set a timer](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/commit/04a4911b08724b40d53c3cd406ce31b34f2178f8#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)
 
-set dp comma , perm
+- [Change the original global created to set a relative path](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/commit/04a4911b08724b40d53c3cd406ce31b34f2178f8#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR45)
 
-global replication "M:\Equipes\Projet 10054\Replication\courloi10054\Improvement"
+- [End the timer start at the begginning of the program](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/commit/04a4911b08724b40d53c3cd406ce31b34f2178f8#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR122-R124)
+- [Display how long it take to the machine to run the program](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/commit/04a4911b08724b40d53c3cd406ce31b34f2178f8#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR122-R124)
+- [Close all open log files](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/commit/04a4911b08724b40d53c3cd406ce31b34f2178f8#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR122-R124) 
 
-version 16
+3.  Modify the "clean_CSLP_disbursement.do" file:
+- [Make all variable name lowercase](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Replication#diff-a00236df0f97886f4dea47e57483a1ce4bc27ce36a7468afbd478881c9236534R8-R11)
 
-log using "replication.log", name(replication) replace
-timer on 1
+4.  Modify the "clean_CSLP_needs.do" file:
+- [Make all variable name lowercase](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Replication#diff-85e75ed4ae98be213e2aec86a6afc08412537383ca5c9712f1b2c5d1d822168cR8-R11)
 
-local variant = cond(c(MP),"MP",cond(c(SE),"SE",c(flavor)) )   
+5.  Modify the "return_analysis.do" file:
+- [Generated the results for table 1, the first row (except IRR results)](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Replication#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR122-R124)
 
-di _newline(2) "Replication done by :"				///
-_newline "Loïc Courtemanche - L.courtemanche@outlook.com"	///
-_newline "`c(current_date)' at `c(current_time)'"		///
-_newline(2) "======= SYSTEM DIAGNOSTICS =======" 		///
-_newline "Stata version: `c(stata_version)'" 			///
-_newline "Updated as of: `c(born_date)'" 			///
-_newline "Variant:       `variant'" 				///
-_newline "Processors:    `c(processors)'" 			///
-_newline "OS:            `c(os)' `c(osdtl)'" 			///
-_newline "Machine type:  `c(machine_type)'" 			///
-_newline "=================================="
+- [Generated the results for table 5, the first row](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/Replication#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR542)
 
-*Create folder for ours results
-capture mkdir results
-capture mkdir "C:/Users/courloi2/data/cleaned"
+6. Run the "main.do" file
 
-
-************************************
-//Ends of replication modification
-************************************
--------------End of Code-------------
-
-3. Add this code a the main of the "main.do"
--------------	Code	-------------
-timer off 1
-timer list
-capture log close _all
--------------End of Code-------------
-
-In the "clean_CSLP_disbursement.do" file:
-1. Add : 
-	/*	== code ==  */
-	//make all variable name lowercase
-	foreach v of varlist _all{
-		capture rename `v' `=lower("`v'")'
-	}
-	/*	== code ==  */
 	
-In the "clean_CSLP_needs.do" file:
-1. Add : 
-	/*	== code ==  */
-	//make all variable name lowercase
-	foreach v of varlist _all{
-		capture rename `v' `=lower("`v'")'
-	}
-	/*	== code ==  *
+## Replication Findings
 
-In the "clean_CSLP_needs.do" file:
-1: Add in "statistics in Table 1 & 2"  (line 122)
-	/*	== code ==  */
-	gen All = 1
-	table All, c(n undergrad_return  mean undergrad_return semean undergrad_return mean default_3yr mean rap_3yr)
-	/*	== code ==  */
-
-2: For table 5, change the line "// sum undergrad_return [weight=loandisb]" for "sum undergrad_return [weight=loandisb]"
-
-## Improvement steps
-From the orignal files of the autors:
-
-1. For all file name and path call in the do files they have been put in ""
-------------------------------------
-Main.do
-------------------------------------
-1. Replication modification
-/*	== code ==  */
-************************************
-//Replication modification
-************************************
-
-set dp comma , perm
-
-global replication "M:\Equipes\Projet 10054\Replication\courloi10054\Improvement"
-
-version 16
-
-log using "replication.log", name(replication) replace
-timer on 1
-
-local variant = cond(c(MP),"MP",cond(c(SE),"SE",c(flavor)) )   
-
-di _newline(2) "Replication done by :"					///
-_newline "Loïc Courtemanche - L.courtemanche@outlook.com"		///
-_newline "`c(current_date)' at `c(current_time)'"			///
-_newline(2) "======= SYSTEM DIAGNOSTICS =======" 			///
-_newline "Stata version: `c(stata_version)'" 				///
-_newline "Updated as of: `c(born_date)'" 				///
-_newline "Variant:       `variant'" 					///
-_newline "Processors:    `c(processors)'" 				///
-_newline "OS:            `c(os)' `c(osdtl)'" 				///
-_newline "Machine type:  `c(machine_type)'" 				///
-_newline "=================================="
-
-*Create folder for ours results
-capture mkdir results
-capture mkdir "C:/Users/courloi2/data/cleaned"
-
-
-************************************
-//Ends of replication modification
-************************************
-/*	== code ==  */
-
-2. Change path
-3. Add : cd "$project"
-4. baseline sample analysis
-	/*	== code ==  */
-	//baseline sample analysis
-	if ($check_sample==0) {
-		*Create globals to test for news results
-		*predict_payments.do -> test for other values
-		foreach rrate of numlist 0.045 0.05 0.055 0.06 0.065  {							// 0.055 is the original value	
-			global rrate `rrate'
-			global nrrate = `rrate'*1000		
-			
-			//impute payments beyond data periods
-			do "predict_payments"
-
-			//calculate return
-			do "calc_return"
-			
-			foreach Cohort of numlist  2003 2004 2005 2006 2007 2008 {					// 2005 is the original value
-				global Cohort `Cohort'
-				//return statistics, regressions
-				do "return_analysis"
-			}
-		}
-	}
-	/*	== code ==  */
-5. Add at the end
-	/*	== code ==  */
-		timer off 1
-		timer list
-		log close _all
-	/*	== code ==  */
-	
-------------------------------------
-clean_CSLP_disbursement.do
-------------------------------------	
-1. Add at line 8 : 
-	/*	== code ==  */
-	//make all variable name lowercase
-	foreach v of varlist _all{
-		capture rename `v' `=lower("`v'")'
-	}
-	/*	== code ==  */
-	
-------------------------------------
-clean_CSLP_needs.do
-------------------------------------	
-1. Add at line 8 : 
-	/*	== code ==  */
-	//make all variable name lowercase
-	foreach v of varlist _all{
-		capture rename `v' `=lower("`v'")'
-	}
-	/*	== code ==  */
-	
-------------------------------------
-predict_payments.do
-------------------------------------	
-1. Change "sca rrate=0.055" for "sca rrate=${rrate}" line 16
-
-------------------------------------
-return_analysis.do
-------------------------------------
-1: Add : capture log using "results/return_analysis ${Cohort} rrate ${nrrate}" , replace t name(ReturnA)
-2: Change "keep if cohort==2005" for "keep if cohort==${Cohort}"
-3: Change "keep if (yearstudy==3 & last_yearcons<=2008)|(yearstudy==4 & last_yearcons<=2007)" for "keep if (yearstudy==3 & last_yearcons<=(${Cohort}+3))|(yearstudy==4 & last_yearcons<=(${Cohort}+2))"
-4: Add in "statistics in Table 1 & 2" 
-	/*	== code ==  */
-	gen All = 1
-	table All, c(n undergrad_return  mean undergrad_return semean undergrad_return mean default_3yr mean rap_3yr)
-	/*	== code ==  */
-5. Add : "graph save "results/Fig 4 ${Cohort} rrate ${nrrate}" , replace"
-6. Add : "graph save "results/Fig 3 ${Cohort} rrate ${nrrate}" , replace"
-7: Add at the end : capture log close ReturnA${Cohort}
-8: Replace in table 5 section : "// sum undergrad_return [weight=loandisb]" by "sum undergrad_return [weight=loandisb] "
-
-## Findings
-
-Replication findings:
 Most results are produce by the proram. All the figure look similar and the small difference in the tables are cause by the rounding of the result with the purpose to keep a diférencebetween result that will disapeared if they were rouded normaly. Fictitious example: Result 1 is 0,005 and result 2 is 0,014. Both should be round to 0,01 but the autors choose to round one to 0,01 and the other to 0,00 (or 0,02) depending on the case to preserved the gap of nearly 0,01 between the two results. Those unusual rounding do not affect the conclusion of the paper. 
 
 The first row of the table 1 is not produce by the program, but can be extract by a little modification stated previously. (step 1 of "clean_CSLP_needs.do" modification in "Replication steps") 
@@ -379,7 +203,7 @@ The result dispaly in the first row and first column of the table 5 is produced 
 
 The IRR result in the tables are not produce by the program. Event if those result are not essential for maintaining the conclusions reached in the paper, they should nevertheless be produced by the code.
 
-Improvement findings:
+## Improvement findings:
 
 Two robustess check have been conduct on the code. The first one was to change the interrest rate use in "predict_payments.do" since the reason why they choose 5.5 % is not explain. The second robustness check run on this code was to apply the same methodology for all the available cohort in the dataset. 
 
@@ -435,3 +259,58 @@ Figure 4: There is no visible difference
 - [ ] `Insufficient time available to replicator` is applicable when (a) running the code would take weeks or more (b) running the code might take less time if sufficient compute resources were to be brought to bear, but no such resources can be accessed in a timely fashion (c) the replication package is very complex, and following all (manual and scripted) steps would take too long.
 - [ ] `Data missing` is marked when data *should* be available, but was erroneously not provided, or is not accessible via the procedures described in the replication package
 - [ ] `Data not available` is marked when data requires additional access steps, for instance purchase or application procedure. 
+
+
+## Improvement steps
+From the orignal dataverse files:
+1. Every file call in the program has been put between ""
+
+2. Modify the "main.do" file:
+- [Create a global with the path to the project](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)
+- [Set he currend directory to the path of the global created](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)
+- [Start a log file for the improvement](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)
+- [Display the specifications of the machine](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)
+- [Set a timer](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR6-R36)  
+
+- [Change the original global created to set a relative path](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR45)
+
+- [Set the loops that make the programm run for eacch combinaison of rrate (4.5 %, 5 %, 5.5 %, 6 %, 6.5 %) and cohorte (2003, 2004, 2005, 2006, 2007, 2008)](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR107-R124)
+
+- [End the timer start at the begginning of the program](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR133-R135)
+- [Display how long it take to the machine to run the program](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR133-R135)
+- [Close all open log files ](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR133-R135)
+
+3.  Modify the "clean_CSLP_disbursement.do" file:
+- [Make all variable name lowercase](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-a00236df0f97886f4dea47e57483a1ce4bc27ce36a7468afbd478881c9236534R7-R12)
+
+4.  Modify the "clean_CSLP_needs.do" file:
+- [Make all variable name lowercase](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-85e75ed4ae98be213e2aec86a6afc08412537383ca5c9712f1b2c5d1d822168cR8-R12)
+
+5. Modify the "predict_payments.do" file:
+- [Set the rrate as the value of the global generated in the loops of the "main.do" file](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-85e75ed4ae98be213e2aec86a6afc08412537383ca5c9712f1b2c5d1d822168cR8-R12)
+
+6.  Modify the "return_analysis.do" file:
+- [Created a log file for the results of each combinaisons of rrate and cohorte.](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR1)
+
+- [Set the cohorte as the value of the global generated in the loops of the "main.do" file](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR10-R11)
+
+- [Adapte the modification to the cohorte curently set](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR56)
+
+- [Generated the results for table 1, the first row (except IRR results)](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR123-R125)
+
+- [Save the "Figure 4" generate by the program for each cohorte and rrate](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR176)
+
+- [Save the "Figure 3" generate by the program for each cohorte and rrate](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR536)
+
+- [Generated the results for table 5, the first row](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR536)
+
+- [Close the log file for the results by cohorte and rrate](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-4481a02ca96d0b330194597c755628a1ccfd6e4d8191161a76cf1a99467d69beR543)
+
+7. Run the "main.do" file
+
+
+## Improvement findings:
+
+Two robustess check have been conduct on the code. The first one was to change the interrest rate use in "predict_payments.do" since the reason why they choose 5.5 % is not explain. The second robustness check run on this code was to apply the same methodology for all the available cohort in the dataset. 
+
+For the robustness test on the change in interest rate, the conclusion are not affected by a change from 5.5 % by 4.5 %, 5 %, 6 % and 6.5 %. The results are only slightly affected by the change. For the robustness test on the change of cohortes, the conclusion are also not affected. However, the cohorts are heterogeneous enough for the numerical values such as the return rate between each cohort to be quite different. There is a gap of about 7 percentage points between the cohort with the highest rate of return and the cohort with the lowest rate.
