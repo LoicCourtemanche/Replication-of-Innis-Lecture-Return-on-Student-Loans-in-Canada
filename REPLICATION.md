@@ -311,6 +311,8 @@ From the orignal dataverse files:
 
 ## Improvement findings:
 
+Due to the conditions of access to the data, outputting the results would have been too complicated and too long for a simple reproduction job. The conclusions are therefore the result of a qualitative analysis of the results and the results obtained by the code of this GitHub are not presented.
+
 Two robustess check have been conduct on the code. The first one was to change the interrest rate use in "predict_payments.do" since the reason why they choose 5.5 % is not explain. The second robustness check run on this code was to apply the same methodology for all the available cohort in the dataset. 
 
 For the robustness test on the change in interest rate, the conclusion are not affected by a change from 5.5 % by 4.5 %, 5 %, 6 % and 6.5 %. The results are only slightly affected by the change. For the robustness test on the change of cohortes, the conclusion are also not affected. However, the cohorts are heterogeneous enough for the numerical values such as the return rate between each cohort to be quite different. There is a gap of about 7 percentage points between the cohort with the highest rate of return and the cohort with the lowest rate.
