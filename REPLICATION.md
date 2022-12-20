@@ -14,10 +14,6 @@
 
 ### Action Items (openICPSR)
 
------action items go here------
-
-> INSTRUCTION: leave this in.
-
 > The openICPSR submission process has changed. If you have not already done so, please "Change Status -> Submit to AEA" from your deposit Workspace.
 
 > [NOTE] Since July 1, 2021, we will publish replication packages as soon as all requested changes to the deposit have been made. Please process any requested changes as soon as possible.
@@ -310,6 +306,8 @@ From the orignal dataverse files:
 
 
 ## Improvement findings:
+
+Due to the conditions of access to the data, outputting the results would have been too complicated and too long for a simple reproduction job. The conclusions are therefore the result of a qualitative analysis of the results and the results obtained by the code of this GitHub are not presented.
 
 Two robustess check have been conduct on the code. The first one was to change the interrest rate use in "predict_payments.do" since the reason why they choose 5.5 % is not explain. The second robustness check run on this code was to apply the same methodology for all the available cohort in the dataset. 
 
