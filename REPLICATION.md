@@ -186,8 +186,6 @@ Figure 4: There is no visible difference
 
 ### In-Text Numbers
 
-> INSTRUCTIONS: list page and line number of in-text numbers. If ambiguous, cite the surrounding text, i.e., "the rate fell to 52% of all jobs: verified".
-
 [X] There are no in-text numbers, or all in-text numbers stem from tables and figures.
 
 [ ] There are in-text numbers, but they are not identified in the code
@@ -206,8 +204,8 @@ Figure 4: There is no visible difference
 - [ ] `Discrepancy in output` (either figures or numbers in tables or text differ)
 - [ ] `Bugs in code`  that  were fixable by the replicator (but should be fixed in the final deposit)
 - [X] `Code missing`, in particular if it  prevented the replicator from completing the reproducibility check
-  - [ ] `Data preparation code missing` should be checked if the code missing seems to be data preparation code
-- [X] `Code not functional` is more severe than a simple bug: it  prevented the replicator from completing the reproducibility check
+  - [X] `Data preparation code missing` should be checked if the code missing seems to be data preparation code
+- [ ] `Code not functional` is more severe than a simple bug: it  prevented the replicator from completing the reproducibility check
 - [ ] `Software not available to replicator`  may happen for a variety of reasons, but in particular (a) when the software is commercial, and the replicator does not have access to a licensed copy, or (b) the software is open-source, but a specific version required to conduct the reproducibility check is not available.
 - [ ] `Insufficient time available to replicator` is applicable when (a) running the code would take weeks or more (b) running the code might take less time if sufficient compute resources were to be brought to bear, but no such resources can be accessed in a timely fashion (c) the replication package is very complex, and following all (manual and scripted) steps would take too long.
 - [ ] `Data missing` is marked when data *should* be available, but was erroneously not provided, or is not accessible via the procedures described in the replication package
@@ -269,5 +267,3 @@ Due to the conditions of access to the data, outputting the results would have b
 Two robustness checks have been conducted on the code. The first one was to change the interest rate use in "predict_payments.do" since the reason why they choose 5.5 % is not explained. The second robustness check run on this code was to apply the same methodology for all the available cohort in the dataset. 
 
 For the robustness test on the change in interest rates, the conclusions are not affected by a change from 5.5 % by 4.5 %, 5 %, 6 % and 6.5 %. The results are only slightly affected by the change. For the robustness test on the change of cohorts, the conclusions are also not affected. However, the cohorts are heterogeneous enough for the numerical values such as the return rate between each cohort to be quite different. There is a gap of about 5 percentage points between the cohort with the highest rate of return and the cohort with the lowest rate.
-
-
