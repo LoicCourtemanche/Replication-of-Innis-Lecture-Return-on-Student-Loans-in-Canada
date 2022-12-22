@@ -162,8 +162,6 @@ The result display in the first row and first column of the table 5 is produced 
 The IRR result in the tables are not produced by the program. Event if those results are not essential for maintaining the conclusions reached in the paper, they should nevertheless be produced by the code.
 
 
-## Improvement :
-
 ### Data Preparation Code
 
 ### Tables
