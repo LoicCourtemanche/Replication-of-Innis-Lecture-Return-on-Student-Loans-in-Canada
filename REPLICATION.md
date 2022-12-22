@@ -51,11 +51,6 @@ Table C2).
 the statistics that we use to impute payments after default (online appendix Table C3)
 
 
-## Data deposit
-
-> INSTRUCTIONS: Most deposits will be at openICPSR, but all need to be checked for complete metadata. Detailed guidance is at [https://aeadataeditor.github.io/aea-de-guidance/](https://aeadataeditor.github.io/aea-de-guidance/). 
-
-
 ### Requirements 
 
 - [X] README is in TXT, MD, PDF format
@@ -79,16 +74,6 @@ the statistics that we use to impute payments after default (online appendix Tab
 
 - [SUGGESTED] We suggest you update the openICPSR metadata fields marked as (highly recommended), in order to improve findability of your data and code supplement. 
 - [SUGGESTED] We suggest you update the openICPSR metadata fields marked as (suggested), in order to improve findability of your data and code supplement. 
-
-
-## Data checks
-
-> INSTRUCTIONS: When data are present, run checks:
-> - can data be read (using software indicated by author)?
-> - Are datasets in archive-ready formats (CSV, TXT) or in custom formats (DTA, SAS7BDAT, Rdata)? Note: Numbers and Mathematica data files are not considered archive-safe and cannot be accepted. 
-> - Do the data files have variable labels (Stata: run `describe using (name of DTA)` and check that there is content in the column "variable label")?
-> - Run check for PII ([PII_stata_scan.do](PII_stata_scan.do), sourced from [here](https://github.com/J-PAL/stata_PII_scan) if using Stata) and report results. Note: this check will have lots of false positives - fields it thinks might be sensitive that are not, in fact, sensitive. Apply judgement.
-
 
 ## Code description
 
