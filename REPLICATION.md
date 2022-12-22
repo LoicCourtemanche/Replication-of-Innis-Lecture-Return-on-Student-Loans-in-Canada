@@ -185,8 +185,6 @@ Figure 4: There is no visible difference
 
 ### In-Text Numbers
 
-> INSTRUCTIONS: list page and line number of in-text numbers. If ambiguous, cite the surrounding text, i.e., "the rate fell to 52% of all jobs: verified".
-
 [X] There are no in-text numbers, or all in-text numbers stem from tables and figures.
 
 [ ] There are in-text numbers, but they are not identified in the code
