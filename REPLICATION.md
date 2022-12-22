@@ -24,7 +24,6 @@
 
 ## Data description
 
-
 ### Data Sources
 
 [CSLP]
@@ -155,18 +154,15 @@ From the orignal dataverse files:
 	
 ## Replication Findings
 
-Most results are produce by the proram. All the figure look similar and the small difference in the tables are cause by the rounding of the result with the purpose to keep a diférencebetween result that will disapeared if they were rouded normaly. Fictitious example: Result 1 is 0,005 and result 2 is 0,014. Both should be round to 0,01 but the autors choose to round one to 0,01 and the other to 0,00 (or 0,02) depending on the case to preserved the gap of nearly 0,01 between the two results. Those unusual rounding do not affect the conclusion of the paper. 
+Most results are produced by the program. All the figure look similar and the small difference in the tables are caused by the rounding of the result with the purpose to keep a difference between result that will disappear if they were rounded normally. Fictitious example: Result 1 is 0,005 and result 2 is 0,014. Both should be round to 0,01 but the authors choose to round one to 0,01 and the other to 0,00 (or 0,02) depending on the case to preserve the gap of nearly 0,01 between the two results. Those unusual rounding do not affect the conclusion of the paper. 
 
-The first row of the table 1 is not produce by the program, but can be extract by a little modification stated previously. (step 1 of "clean_CSLP_needs.do" modification in "Replication steps") 
-The result dispaly in the first row and first column of the table 5 is produced by a line of code that has been commented out of the code. (step 2 of "clean_CSLP_needs.do" modification in "Replication steps")
+The first row of the table 1 is not produced by the program, but can be extracted by a little modification stated previously. (step 1 of "clean_CSLP_needs.do" modification in "Replication steps") 
+The result display in the first row and first column of the table 5 is produced by a line of code that has been commented out of the code. (step 2 of "clean_CSLP_needs.do" modification in "Replication steps")
 
-The IRR result in the tables are not produce by the program. Event if those result are not essential for maintaining the conclusions reached in the paper, they should nevertheless be produced by the code.
+The IRR result in the tables are not produced by the program. Event if those results are not essential for maintaining the conclusions reached in the paper, they should nevertheless be produced by the code.
 
-## Improvement findings:
 
-Two robustess check have been conduct on the code. The first one was to change the interrest rate use in "predict_payments.do" since the reason why they choose 5.5 % is not explain. The second robustness check run on this code was to apply the same methodology for all the available cohort in the dataset. 
-
-For the robustness test on the change in interest rate, the conclusion are not affected by a change from 5.5 % by 4.5 %, 5 %, 6 % and 6.5 %. The results are only slightly affected by the change. For the robustness test on the change of cohortes, the conclusion are also not affected. The empirical result 
+## Improvement :
 
 ### Data Preparation Code
 
@@ -272,7 +268,8 @@ From the orignal dataverse files:
 
 Due to the conditions of access to the data, outputting the results would have been too complicated and too long for a simple reproduction job. The conclusions are therefore the result of a qualitative analysis of the results and the results obtained by the code of this GitHub are not presented.
 
-Two robustess check have been conduct on the code. The first one was to change the interrest rate use in "predict_payments.do" since the reason why they choose 5.5 % is not explain. The second robustness check run on this code was to apply the same methodology for all the available cohort in the dataset. 
+Two robustness checks have been conducted on the code. The first one was to change the interest rate use in "predict_payments.do" since the reason why they choose 5.5 % is not explained. The second robustness check run on this code was to apply the same methodology for all the available cohort in the dataset. 
 
-For the robustness test on the change in interest rate, the conclusion are not affected by a change from 5.5 % by 4.5 %, 5 %, 6 % and 6.5 %. The results are only slightly affected by the change. For the robustness test on the change of cohortes, the conclusion are also not affected. However, the cohorts are heterogeneous enough for the numerical values such as the return rate between each cohort to be quite different. There is a gap of about 5 percentage points between the cohort with the highest rate of return and the cohort with the lowest rate.
+For the robustness test on the change in interest rates, the conclusions are not affected by a change from 5.5 % by 4.5 %, 5 %, 6 % and 6.5 %. The results are only slightly affected by the change. For the robustness test on the change of cohorts, the conclusions are also not affected. However, the cohorts are heterogeneous enough for the numerical values such as the return rate between each cohort to be quite different. There is a gap of about 5 percentage points between the cohort with the highest rate of return and the cohort with the lowest rate.
+
 
