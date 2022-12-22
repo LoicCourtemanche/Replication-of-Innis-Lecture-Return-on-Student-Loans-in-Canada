@@ -1,25 +1,5 @@
 # caje.12561 Innis Lecture: Return on Student Loans in Canada Validation and Replication results
 
-> Some useful links:
-> - [Official Data and Code Availability Policy](https://www.aeaweb.org/journals/policies/data-code)
-> - [Step by step guidance](https://aeadataeditor.github.io/aea-de-guidance/) 
-> - [Template README](https://social-science-data-editors.github.io/template_README/)
-
-
-## SUMMARY
-
-
-### Action Items (manuscript)
-
-
-### Action Items (openICPSR)
-
-> The openICPSR submission process has changed. If you have not already done so, please "Change Status -> Submit to AEA" from your deposit Workspace.
-
-> [NOTE] Since July 1, 2021, we will publish replication packages as soon as all requested changes to the deposit have been made. Please process any requested changes as soon as possible.
-
-> INSTRUCTION: ALWAYS do "Data description", "Code description". If data is present, ALWAYS do "Data checks". If time is sufficient (initial assessment!), do "Replication steps", if not, explain why not.
-
 
 ## General
 
@@ -77,8 +57,6 @@ the statistics that we use to impute payments after default (online appendix Tab
 
 
 ### Requirements 
-
-> INSTRUCTIONS: Check that these requirements are met. 
 
 - [X] README is in TXT, MD, PDF format
 - [X] Deposit has no ZIP files
