@@ -99,7 +99,7 @@ else{
 
 forval t=2003/`ymax'{
 	global y `t'
-	"do clean_repay_by_cohort"
+	do "clean_repay_by_cohort"
 }
 
 //baseline sample analysis
