@@ -119,7 +119,7 @@ if ($check_sample==0) {
 		foreach Cohort of numlist  2003 2004 2005 2006 2007 2008 {			//-> 2005 is the original value
 			global Cohort `Cohort'											
 			//return statistics, regressions								
-			"do return_analysis"											
+			do "return_analysis"											
 		}																	
 	}																		
 }
