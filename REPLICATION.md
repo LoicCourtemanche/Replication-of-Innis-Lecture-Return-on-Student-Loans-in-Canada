@@ -126,6 +126,8 @@ the statistics that we use to impute payments after default (online appendix Tab
 
 ## Computing Environment of the Replicator
 
+Run on a 2022 regular computer with 16 GB of ram (4 GB of ram is probably sufficient).
+
 ## Replication steps
 
 From the orignal dataverse files:
@@ -221,6 +223,13 @@ Figure 4: There is no visible difference
 
 
 ## Improvement steps
+
+### Explanation of the improvement modifications
+
+- We run two robustness test. For the first one, we change the value of the "rrate" (the interest rate of the loan) used to calculated the prediction of payments in "preict_payments" do-file. The authors do not explain why they use this rate. [We make a loop over those three sub-program (predict_payments, calc_return, return_analysis) and produce results for "rrate" of 0.045, 0.05, 0.055, 0.06 and 0.065 (the value used by the article is 0.055).](https://github.com/LoicCourtemanche/Replication-of-Innis-Lecture-Return-on-Student-Loans-in-Canada/compare/master...Improvement#diff-c95c37aed6daf950cee5bc9390fb054b62bc3abac7f78b5bdd7d098ec6b2554cR107-R124) The aricle used the 2005 cohorts to evaluate the rate of return. We make an other loop inside the first one mention before to change the cohorts use to produce results for all cohorts availables (2003 to 2008).
+
+
+### Steps for improvement
 
 From the original dataverse files:
 
